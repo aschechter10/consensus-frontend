@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@theme {
+  /* custom colors here */
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
