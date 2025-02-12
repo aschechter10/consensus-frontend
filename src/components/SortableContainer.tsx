@@ -1,3 +1,4 @@
+import { useState, useEffect, use } from 'react';
 import { DndContext, closestCenter } from "@dnd-kit/core";
 import { SortableContext, arrayMove, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { useDragContext } from "@/context/DragContext";
@@ -5,6 +6,13 @@ import DraggableRect from "./DraggableTile";
 
 const SortableContainer: React.FC = () => {
   const { items, setItems } = useDragContext();
+
+  /* from chatgpt to prevent hydration mismatch */
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+  if (!isClient) return null;
 
   const handleDragEnd = (event: any) => {
     const { active, over } = event;
