@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-import { DragProvider } from '../context/DragContext';
+import { GameProvider } from '../context/GameContext';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <DragProvider>{children}</DragProvider>
+        <GameProvider>{children}</GameProvider>
       </body>
     </html>
   );

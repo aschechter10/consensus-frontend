@@ -2,21 +2,17 @@
 
 import { useEffect } from 'react';
 
-import SortableContainer from '@/components/SortableContainer';
-import { useDragContext } from '@/context/DragContext';
+import { useGameContext } from '@/context/GameContext';
+import SortList from '@/components/SortList';
+import WordBank from '@/components/WordBank';
 
 export default function Home() {
-  const { items } = useDragContext();
-
-  useEffect(() => {
-    console.log(items);
-  }, [items]);
+  const { items } = useGameContext();
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-32 font-[family-name:var(--font-geist-sans)]">
-      <main>
-        <SortableContainer />
-      </main>
+    <div className="flex flex-col gap-12 justify-center items-center min-h-screen">
+      <SortList></SortList>
+      <WordBank></WordBank>
     </div>
   );
 }
